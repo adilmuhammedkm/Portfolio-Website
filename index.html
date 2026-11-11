@@ -199,13 +199,12 @@
               >
             </div>
             <p class="case-kicker">AI-powered student analytics <span>·</span> May 2026</p>
-            <h3>Identifying student disengagement before it becomes dropout risk</h3>
+            <h3>Flagging students at risk of disengaging and withdrawing</h3>
             <dl class="case-details">
-              <div><dt>Business problem</dt><dd>Identify early signs of student disengagement and potential dropout risk using academic performance and online learning behaviour.</dd></div>
-              <div><dt>Method</dt><dd>Analysed 26K+ students, 10M+ LMS engagement records, and 170K+ assessment records, developing machine learning models using Python and Scikit-learn.</dd>
-              </div><div><dt>Finding</dt><dd>Gradient Boosting achieved 81.83% test accuracy, with 81.69% cross-validation accuracy, identifying students across 3 risk categories.</dd></div>
-              <div><dt>Recommendation</dt><dd>Use risk predictions and engagement patterns to help educators identify students who may<br> 
-                need early academic support and intervention.</dd></div>
+              <div><dt>Business problem</dt><dd>Universities often notice struggling students only once they have failed or withdrawn. The goal was to use learning-platform activity and assessment results to flag students who show disengagement patterns, so advisors can prioritise outreach.</dd></div>
+              <div><dt>Method</dt><dd>Combined 10.6M LMS click records and 174K assessment records for 23K students (26.7K enrolments) from the Open University OULAD dataset. Engineered six student-level features covering clicks, active days, assessments submitted and score spread, and built a three-level risk label (withdrawn = High; low score plus low engagement = Medium; otherwise Low). Compared six models in Scikit-learn and XGBoost, then deployed the best as a Streamlit app that shows risk level and probabilities.</dd>
+              </div><div><dt>Finding</dt><dd>Gradient Boosting reached 81.8% test accuracy (81.7% cross-validated), against a 77.1% “everyone is low risk” baseline. It identified 38% of withdrawing students (59% precision). Assessments submitted (57% importance) and average score (20%) were the strongest predictors. Class-weighted SVM and Logistic Regression caught about 62–63% of withdrawals, at the cost of more false alarms.</dd></div>
+              <div><dt>Recommendation</dt><dd>Use the model to rank students for advisor follow-up, prioritising those with the highest risk probability. Treat a low-risk result as “no signal” rather than “safe”, since the model currently catches around 4 in 10 withdrawals. Next, build features from a course’s first few weeks and tune the threshold for recall, so the warning arrives early enough to act on.</dd></div>
             </dl>
             <a class="project-link" href="https://github.com/adilmuhammedkm/Silent-Burnout-AI" target="_blank" rel="noreferrer">
               Explore the project <span aria-hidden="true">↗</span>
@@ -222,10 +221,11 @@
             <p class="case-kicker">Retail business intelligence <span>·</span> January 2026</p>
             <h3>Making a large retail dataset useful for decisions</h3>
             <dl class="case-details">
-              <div><dt>Business problem</dt><dd>Understand sales performance and customer behaviour across a large retail dataset.</dd></div>
-              <div><dt>Method</dt><dd>Cleaned, analysed, and validated 400K+ rows with Python and SQL, then built Power BI views with forecasting and churn analysis.</dd></div>
-              <div><dt>Finding</dt><dd>The analysis surfaced £8.83M in revenue alongside patterns in customer behaviour and sales trends.</dd></div>
-              <div><dt>Recommendation</dt><dd>Use the dashboard to investigate churn and sales patterns by customer and period before prioritising retention or growth actions.</dd></div>
+              <div><dt>Business problem</dt><dd>Show where a UK-based online retailer’s revenue comes from, which customers and products drive it, and when demand peaks.</dd></div>
+              <div><dt>Method</dt><dd>Cleaned and validated 400K+ transaction rows with Python and SQL, then built a Power BI dashboard tracking revenue, orders, customers and average order value by month, product and country, with forecasting and churn analysis.</dd></div>
+              <div><dt>Finding</dt><dd>The business generated £8.83M from 19K orders and 4,312 customers, an average order value of about £460.<br>
+                The UK accounted for the large majority of revenue, a small group of products drove a disproportionate share of sales, and revenue peaked in Q4, pointing to strong seasonal demand.</dd></div>
+              <div><dt>Recommendation</dt><dd>Concentrate inventory and promotions on the top products ahead of Q4, and focus retention work on repeat customers. Since revenue depends so heavily on the UK, test whether any export markets are worth developing.</dd></div>
             </dl>
             <a class="project-link" href="https://github.com/adilmuhammedkm/Retail-Business-Intelligence" target="_blank" rel="noreferrer">
               Explore the project <span aria-hidden="true">↗</span>
@@ -242,10 +242,12 @@
             <p class="case-kicker">Sales performance <span>·</span> January 2025</p>
             <h3>Giving sales and profit more than one point of view</h3>
             <dl class="case-details">
-              <div><dt>Business problem</dt><dd>Make revenue and profit performance easier to monitor and investigate.</dd></div>
-              <div><dt>Method</dt><dd>Built a Power BI dashboard with several chart types, interactive slicers, Q&amp;A, key influencers, and a decomposition tree.</dd></div>
-              <div><dt>Finding</dt><dd>The interactive views give users ways to examine performance and explore contributing factors; the CV does not report specific quantified findings.</dd></div>
-              <div><dt>Recommendation</dt><dd>Use the exploration features to follow up on changes in revenue and profit, then validate possible drivers against the underlying business context.</dd></div>
+              <div><dt>Business problem</dt><dd>Make revenue and profit performance easier to monitor, and show which products, locations and payment behaviours drive it.</dd></div>
+              <div><dt>Method</dt><dd>Built an interactive Power BI dashboard with slicers for quarter and state, plus Q&A, key influencers and a decomposition tree for drilling into drivers.</dd></div>
+              <div><dt>Finding</dt><dd>Total profit was 37K on 438K in sales. Printers, sarees and bookcases led sub-category sales at 57–59K each.<br>
+                Clothing was the most preferred category (62.6%), and cash on delivery was the most common payment method (45.6%). Profit was concentrated in January, with February slightly negative.</dd></div>
+              <div><dt>Recommendation</dt><dd>Investigate what made January outperform before planning promotions, and review whether heavy cash-on-delivery<br>
+                use affects returns or cash flow. Also resolve the missing city and month values, since they currently hide where much of the revenue comes from.</dd></div>
             </dl>
             <a class="project-link" href="https://github.com/adilmuhammedkm/Data-Analysis-Portfolio" target="_blank" rel="noreferrer">
               Explore the project <span aria-hidden="true">↗</span>
